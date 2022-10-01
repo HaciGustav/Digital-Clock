@@ -9,11 +9,11 @@ const setClock = () => {
     const second = currentDate.getSeconds() / 60;
     const minute = (second + currentDate.getMinutes()) / 60;
     const hour = (minute + currentDate.getHours()) / 12;
-    console.log(second);
+    // console.log(second);
     setRotation(secondHand, second);
-    console.log(minute);
+    // console.log(minute);
     setRotation(minuteHand, minute);
-    console.log(hour);
+    // console.log(hour);
     setRotation(hourHand, hour);
 };
 const setRotation = (element, rotationRatio) => {
@@ -39,7 +39,35 @@ const setDigitalClock = () => {
         hourDiv.innerText = '0' + hour;
     }
     minuteDiv.innerText = minute;
+    if (minuteDiv.innerText < 10) {
+        minuteDiv.innerText = '0' + minute;
+    }
     secondDiv.innerText = second;
+    if (secondDiv.innerText < 10) {
+        secondDiv.innerText = '0' + second;
+    }
 };
 setDigitalClock();
 setInterval(setDigitalClock, 1000);
+const switchToggle = () => {
+    document.querySelector('.slider').addEventListener('click', (e) => {
+        const analog = document.querySelector('.analog');
+        const digital = document.querySelector('.digital');
+        const dataCheck = e.target
+            .closest('.switch-wrap')
+            .querySelector('[data-check]');
+
+        if (dataCheck.getAttribute('data-check') == 'analog') {
+            dataCheck.setAttribute('data-check', 'digital');
+            digital.style.display = 'flex';
+            analog.style.display = 'none';
+            console.log(dataCheck);
+        } else if (dataCheck.getAttribute('data-check') == 'digital') {
+            dataCheck.setAttribute('data-check', 'analog');
+            digital.style.display = 'none';
+            analog.style.display = 'flex';
+            console.log(dataCheck);
+        }
+    });
+};
+switchToggle();

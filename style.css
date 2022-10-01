@@ -9,20 +9,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(27,59,83,1) 35%, rgba(0,212,255,1) 100%);
+background-repeat: no-repeat;
 }
 .clocks{
-    width: min(100% - 50rem);
-    height: min(100% - 20rem);
+    width: 50%;
+    padding: 5rem;
+    min-width:20rem;
+    /* height: min(100% - 20rem); */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    
 }
 /* ========== TOGGLE SWITCH ========== */
 .switch-wrap{
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 5%;
+    right: 5%;
 }
 .clocks .switch{
     position: relative;
@@ -42,7 +49,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: rgba(204, 204, 204, 0);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -51,9 +58,9 @@ body{
     content: "";
     height: 26px;
     width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
+    left: 2px;
+    bottom: 3px;
+    background-color: rgb(57, 6, 245);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -74,6 +81,7 @@ body{
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
+    border:1px solid white;
   }
   
   .slider.round:before {
@@ -84,7 +92,7 @@ body{
 /*=================== ANALOG SECTION================= */
 
 .analog{
-    display: none;
+    display: flex;
     width: 30rem;
     height: 30rem;
     border: 2px solid tomato;
@@ -190,23 +198,84 @@ body{
 
 /* ================== DIGITAL CLOCK SECTION ================= */
 .digital{
-    width: 45rem;
-    height: 15rem;
+    /* width: 45rem; */
+    /* height: 15rem; */
     /* border: 2px solid red; */
-    display: flex;
-    justify-content: space-around;
+    display: none;
+    justify-content: space-evenly;
+    gap: 10px;
     /* display: none; */
 
 }
 .digital .hour-div, .minute-div, .second-div{
     height: 100%;
-    width: 30%;
+    padding: 0.5rem;
     /* border: solid black; */
     text-align: center;
-    font-size: 10rem;
+    font-size: 500%;
+    font-weight: 900;
+}
+.second-div{
+    font-size: 550%;
 }
 .digital span{
     height: 100%;
-    font-size:10rem ;
+    font-size: 500% ;
     /* border: solid black; */
+}
+
+
+@media (max-width: 576px) {
+    .analog {
+         width: 10rem;
+        height: 10rem; 
+        padding:0;
+        
+    }
+     .number{
+        font-size: 1rem;
+    }
+    .hand{
+        width: 2px;
+    }
+    .analog::after{
+        content: "";
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: black;
+        transform: translate(-50%, 50%);
+        z-index: 99999;
+    }
+    
+}
+@media (max-width: 768px) {
+    .analog {
+         width: 15rem;
+        height: 15rem; 
+        padding:0;
+        
+    }
+     .number{
+        font-size: 1rem;
+    }
+    .hand{
+        width: 2px;
+    }
+    .analog::after{
+        content: "";
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: black;
+        transform: translate(-50%, 50%);
+        z-index: 99999;
+    }
+    
 }
