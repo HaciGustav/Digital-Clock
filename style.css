@@ -195,7 +195,7 @@ body{
     /* border: 2px solid red; */
     display: flex;
     justify-content: space-around;
-    display: none;
+    /* display: none; */
 
 }
 .digital .hour-div, .minute-div, .second-div{

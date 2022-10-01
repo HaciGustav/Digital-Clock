@@ -25,3 +25,21 @@ setInterval(setClock, 1000);
 
 // =======Analog clock END===========//
 // ========Digital Clock ============//
+const setDigitalClock = () => {
+    const hour = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const second = new Date().getSeconds();
+
+    const hourDiv = document.querySelector('.hour-div');
+    const minuteDiv = document.querySelector('.minute-div');
+    const secondDiv = document.querySelector('.second-div');
+
+    hourDiv.innerText = hour;
+    if (hourDiv.innerText < 10) {
+        hourDiv.innerText = '0' + hour;
+    }
+    minuteDiv.innerText = minute;
+    secondDiv.innerText = second;
+};
+setDigitalClock();
+setInterval(setDigitalClock, 1000);
