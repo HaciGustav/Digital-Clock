@@ -1,3 +1,5 @@
+// =======Analog clock===========//
+
 const hourHand = document.querySelector('.hour');
 const minuteHand = document.querySelector('.minute');
 const secondHand = document.querySelector('.second');
@@ -20,3 +22,6 @@ const setRotation = (element, rotationRatio) => {
 setClock();
 
 setInterval(setClock, 1000);
+
+// =======Analog clock END===========//
+// ========Digital Clock ============//
