@@ -10,9 +10,19 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
+    
 
 background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(27,59,83,0.9) 40%, rgba(0,212,255,0.7) 100%);
 background-repeat: no-repeat;
+}
+.ad{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.288);
+    z-index: 99999999;
 }
 .clocks{
     width: 100%;

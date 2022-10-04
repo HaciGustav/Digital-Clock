@@ -1,3 +1,7 @@
+//Advertisement
+document.querySelector('.ad').addEventListener('click', (e) => {
+    e.target.remove();
+});
 //=======Wather and IP=========//
 const getData = async () => {
     const ipApiKey = `at_J0ZI1vbdbS7a6JphnC4AMI1Ajj7mC`;
