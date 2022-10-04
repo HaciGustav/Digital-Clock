@@ -1,3 +1,48 @@
+//=======Wather and IP=========//
+const getData = async () => {
+    const ipApiKey = `at_J0ZI1vbdbS7a6JphnC4AMI1Ajj7mC`;
+    const ipUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${ipApiKey}`;
+
+    const ipResp = await fetch(ipUrl);
+    const dataIp = await ipResp.json();
+
+    const currentCity = dataIp.location.city;
+
+    const weatherApiKey = '9ca3f1fa52b86e71f50daf161bce4950';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${weatherApiKey}&units=metric`;
+    // const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=adana&appid=${weatherApiKey}&units=metric`;
+
+    const wResp = await fetch(weatherUrl);
+
+    const dataW = await wResp.json();
+
+    const extractValues = async () => {
+        const temp = await dataW.main.temp;
+        const icon = await dataW.weather[0].icon;
+        const cityName = await dataW.name;
+
+        console.log(cityName);
+        const values = [temp, icon, cityName];
+        const iconUrl = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${icon}.svg`;
+
+        const weatherDiv = document.querySelector('.city-name');
+        const img = document.querySelector('.weather-wrap img');
+        const tempDiv = document.querySelector('.weather-wrap .temp');
+
+        weatherDiv.innerText = cityName;
+        img.setAttribute('src', iconUrl);
+        tempDiv.innerText = Math.floor(temp) + '°';
+    };
+
+    // const finalData = [temp, weather, name];
+    extractValues();
+};
+getData();
+const weatherRenderer = () => {
+    const weatherDiv = document.querySelector('.weather-wrap');
+    weatherDiv.innerText = getData()[2];
+};
+
 // =======Analog clock===========//
 
 const hourHand = document.querySelector('.hour');
@@ -71,3 +116,24 @@ const switchToggle = () => {
     });
 };
 switchToggle();
+
+const amPmToggle = () => {
+    document.querySelector('.slider2').addEventListener('click', (e) => {
+        const digital = document.querySelector('.digital');
+        const dataCheck = e.target
+            .closest('.switch-wrap2')
+            .querySelector('[data-check]');
+
+        if (dataCheck.getAttribute('data-check') == 'AM') {
+            dataCheck.setAttribute('data-check', 'PM');
+            digital.style.display = 'flex';
+
+            console.log(dataCheck);
+        } else if (dataCheck.getAttribute('data-check') == 'digital') {
+            dataCheck.setAttribute('data-check', 'analog');
+            digital.style.display = 'none';
+            analog.style.display = 'flex';
+            console.log(dataCheck);
+        }
+    });
+};

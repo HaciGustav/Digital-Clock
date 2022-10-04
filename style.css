@@ -15,10 +15,10 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(27,59,83,1) 35%, rgba
 background-repeat: no-repeat;
 }
 .clocks{
-    width: 50%;
+    width: 40rem;
     padding: 5rem;
     min-width:20rem;
-    /* height: min(100% - 20rem); */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +36,14 @@ background-repeat: no-repeat;
     display: inline-block;
     width: 60px;
     height: 34px;
+    
 }
 .switch input { 
     opacity: 0;
     width: 0;
     height: 0;
+    
+    
 }
 .slider {
     position: absolute;
@@ -52,6 +55,7 @@ background-repeat: no-repeat;
     background-color: rgba(204, 204, 204, 0);
     -webkit-transition: .4s;
     transition: .4s;
+    
   }
   .slider:before {
     position: absolute;
@@ -60,9 +64,10 @@ background-repeat: no-repeat;
     width: 26px;
     left: 2px;
     bottom: 3px;
-    background-color: rgb(57, 6, 245);
+    background-color: rgba(6, 13, 112, 0.493);
     -webkit-transition: .4s;
     transition: .4s;
+    
   }
   input:checked + .slider {
     background-color: #2196F3;
@@ -76,29 +81,57 @@ background-repeat: no-repeat;
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+  
+}
   
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
-    border:1px solid white;
+    background-color: #2196F3;
   }
   
   .slider.round:before {
     border-radius: 50%;
+    
   }
   /* ========== TOGGLE SWITCH END ========== */
+ 
 
 /*=================== ANALOG SECTION================= */
 
 .analog{
     display: flex;
+    align-items: end;
+    justify-content: center;
     width: 30rem;
     height: 30rem;
-    border: 2px solid tomato;
+
     border-radius: 50%;
     position: relative;
 }
+/* Weather section */
+.weather-wrap{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 17%;
+
+    z-index: -1;
+}
+.weather-wrap img{
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    
+}
+.weather-wrap .city-name{
+    text-align: center;
+}
+.weather-wrap .temp{
+    font-weight: 600;
+}
+/* Weather section END */
 .number{
 --rotation: 0;
     width: inherit;
@@ -107,6 +140,7 @@ background-repeat: no-repeat;
     text-align: center;
     font-size: 2rem;
     transform: rotate(var(--rotation));
+    z-index: 0;
 }
 .number1{--rotation: 30deg}
 .number2{--rotation: 60deg}
@@ -119,7 +153,10 @@ background-repeat: no-repeat;
 .number7{--rotation: 210deg}
 .number8{--rotation: 240deg}
 .number9{--rotation: 270deg;
-        font-size: 3rem;}
+        font-size: 3rem;
+
+}
+        
 .number10{--rotation: 300deg}
 .number11{--rotation: 330deg}
 .number12{--rotation: 0deg;
@@ -129,6 +166,8 @@ background-repeat: no-repeat;
 .number3 div{
     transform: rotateX(-90deg);
     transform: rotateZ(-90deg);
+    width: 50%;
+    margin: auto;
 }
 .number4 div{
     transform: rotateX(180deg);
@@ -153,6 +192,9 @@ background-repeat: no-repeat;
 .number9 div{
     transform: rotateX(90deg);
     transform: rotateZ(90deg);
+    text-align: center;
+    width: 50%;
+    margin: auto;
 }
 
 .analog::after{
@@ -172,25 +214,25 @@ background-repeat: no-repeat;
     --rotation: 0;
     position: absolute;
     background-color: black;
-    width: 10px;
-    height: 37%;
+    width: 5px;
+    height: 30%;
     bottom: 50%;
     left: 50%;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg)) ;
     transform-origin: bottom;
-    border: 1px solid white;
+
     border-radius: 50% 50% 0 0;
    
     
 }
 
 .hand.minute{
-    width: 7px;
+    width: 5px;
     height: 41%;
    
 }
 .hand.second{
-    width: 4px;
+    width: 3px;
     height: 45%;
     background-color: red;
    
@@ -198,42 +240,44 @@ background-repeat: no-repeat;
 
 /* ================== DIGITAL CLOCK SECTION ================= */
 .digital{
-    /* width: 45rem; */
-    /* height: 15rem; */
-    /* border: 2px solid red; */
     display: none;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px;
-    /* display: none; */
+    width: 100%;
 
 }
 .digital .hour-div, .minute-div, .second-div{
     height: 100%;
-    padding: 0.5rem;
-    /* border: solid black; */
+    
+    width: 6rem;
+
     text-align: center;
     font-size: 500%;
     font-weight: 900;
 }
 .second-div{
     font-size: 550%;
+    width: 7rem;
 }
 .digital span{
     height: 100%;
     font-size: 500% ;
-    /* border: solid black; */
+
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 280px) {
+    .clocks{
+        min-width: 5rem;
+    }
     .analog {
-         width: 10rem;
-        height: 10rem; 
+         width: 5rem;
+        height: 5rem; 
         padding:0;
         
     }
      .number{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .hand{
         width: 2px;
@@ -250,17 +294,49 @@ background-repeat: no-repeat;
         transform: translate(-50%, 50%);
         z-index: 99999;
     }
-    
+    .digital{
+        font-size: 0.5rem;
+    }
 }
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     .analog {
-         width: 15rem;
-        height: 15rem; 
+         width: 12rem;
+        height: 12rem; 
         padding:0;
         
     }
      .number{
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+    .hand{
+        width: 2px;
+    }
+    .analog::after{
+        content: "";
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: black;
+        transform: translate(-50%, 50%);
+        z-index: 99999;
+    }
+    .digital{
+        width: 200%;
+        font-size: 0.5rem;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .analog {
+         width: 20rem;
+        height: 20rem; 
+        padding:0;
+        
+    }
+     .number{
+        font-size: 2rem;
     }
     .hand{
         width: 2px;
