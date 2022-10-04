@@ -10,12 +10,12 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(27,59,83,1) 35%, rgba(0,212,255,1) 100%);
+
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(27,59,83,0.9) 40%, rgba(0,212,255,0.7) 100%);
 background-repeat: no-repeat;
 }
 .clocks{
-    width: 40rem;
+    width: 100%;
     padding: 5rem;
     min-width:20rem;
 
@@ -29,7 +29,7 @@ background-repeat: no-repeat;
 .switch-wrap{
     position: absolute;
     top: 5%;
-    right: 5%;
+    right: 10%;
 }
 .clocks .switch{
     position: relative;
@@ -103,9 +103,9 @@ background-repeat: no-repeat;
     display: flex;
     align-items: end;
     justify-content: center;
-    width: 30rem;
-    height: 30rem;
-
+    width: 25rem;
+    height: 25rem;
+/* border: solid red; */
     border-radius: 50%;
     position: relative;
 }
@@ -134,33 +134,33 @@ background-repeat: no-repeat;
 /* Weather section END */
 .number{
 --rotation: 0;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     position: absolute;
     text-align: center;
-    font-size: 2rem;
+    font-size: 100%;
     transform: rotate(var(--rotation));
     z-index: 0;
 }
 .number1{--rotation: 30deg}
 .number2{--rotation: 60deg}
 .number3{--rotation: 90deg;
-            font-size: 3rem;}
+            font-size: 200%;}
 .number4{--rotation: 120deg}
 .number5{--rotation: 150deg}
 .number6{--rotation: 180deg;
-    font-size: 3rem;}
+    font-size: 200%;}
 .number7{--rotation: 210deg}
 .number8{--rotation: 240deg}
 .number9{--rotation: 270deg;
-        font-size: 3rem;
+        font-size: 200%;
 
 }
         
 .number10{--rotation: 300deg}
 .number11{--rotation: 330deg}
 .number12{--rotation: 0deg;
-    font-size: 3rem;}
+    font-size: 200%;}
 
 
 .number3 div{
@@ -243,7 +243,7 @@ background-repeat: no-repeat;
     display: none;
     justify-content: center;
     gap: 10px;
-    width: 100%;
+    width: 25rem;
 
 }
 .digital .hour-div, .minute-div, .second-div{
@@ -265,8 +265,33 @@ background-repeat: no-repeat;
 
 }
 
-
-@media (max-width: 280px) {
+@media (min-width: 276px) and (max-width: 576px){
+    .analog{
+        /* border: solid red; */
+        width:13rem;
+        height:13rem
+    }
+    .hand{
+        width: 4px;
+    }
+    .hand.minute{
+        width: 3px;
+        height: 35%;
+    }
+    .hand.second{
+        width: 2px;
+        height: 40%;
+    }
+    .analog::after{
+        width: 0.7rem;
+        height: 0.7rem;
+    }
+    .digital{
+        width: 15;
+    }
+}
+/*
+@media (min-width: 275px) {
     .clocks{
         min-width: 5rem;
     }
@@ -277,10 +302,20 @@ background-repeat: no-repeat;
         
     }
      .number{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
+   
     .hand{
-        width: 2px;
+        width: 1rem;
+        height: 10px;
+    }
+    .hand.minute{
+        height: 4.5rem;
+        width: 3px;
+    }
+    .hand.second{
+        width: 1px;
+        height: 40%;
     }
     .analog::after{
         content: "";
@@ -297,7 +332,7 @@ background-repeat: no-repeat;
     .digital{
         font-size: 0.5rem;
     }
-}
+} 
 @media (max-width: 576px) {
     .analog {
          width: 12rem;
@@ -310,6 +345,7 @@ background-repeat: no-repeat;
     }
     .hand{
         width: 2px;
+        height: 30%;
     }
     .analog::after{
         content: "";
