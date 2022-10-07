@@ -1,4 +1,11 @@
 //Advertisement
+/* setInterval(() => {
+    const ad = document.createElement('a');
+    ad.setAttribute('href', 'google.com');
+    ad.setAttribute('target', '_blank');
+    ad.className = 'ad';
+    document.body.appendChild(ad);
+}, 5000); */
 document.querySelector('.ad').addEventListener('click', (e) => {
     e.target.remove();
 });
@@ -14,7 +21,6 @@ const getData = async () => {
 
     const weatherApiKey = '9ca3f1fa52b86e71f50daf161bce4950';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${weatherApiKey}&units=metric`;
-    // const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=adana&appid=${weatherApiKey}&units=metric`;
 
     const wResp = await fetch(weatherUrl);
 
@@ -42,10 +48,6 @@ const getData = async () => {
     extractValues();
 };
 getData();
-const weatherRenderer = () => {
-    const weatherDiv = document.querySelector('.weather-wrap');
-    weatherDiv.innerText = getData()[2];
-};
 
 // =======Analog clock===========//
 
@@ -121,7 +123,7 @@ const switchToggle = () => {
 };
 switchToggle();
 
-const amPmToggle = () => {
+/* const amPmToggle = () => {
     document.querySelector('.slider2').addEventListener('click', (e) => {
         const digital = document.querySelector('.digital');
         const dataCheck = e.target
@@ -140,4 +142,4 @@ const amPmToggle = () => {
             console.log(dataCheck);
         }
     });
-};
+}; */
