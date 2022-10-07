@@ -123,6 +123,7 @@ const switchToggle = () => {
 };
 switchToggle();
 
+<<<<<<< HEAD
 /* const amPmToggle = () => {
     document.querySelector('.slider2').addEventListener('click', (e) => {
         const digital = document.querySelector('.digital');
@@ -143,3 +144,5 @@ switchToggle();
         }
     });
 }; */
+=======
+>>>>>>> 742dca2b506d84eda66f4ddc0e63647f88da3ca0
