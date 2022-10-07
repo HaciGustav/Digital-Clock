@@ -121,23 +121,3 @@ const switchToggle = () => {
 };
 switchToggle();
 
-const amPmToggle = () => {
-    document.querySelector('.slider2').addEventListener('click', (e) => {
-        const digital = document.querySelector('.digital');
-        const dataCheck = e.target
-            .closest('.switch-wrap2')
-            .querySelector('[data-check]');
-
-        if (dataCheck.getAttribute('data-check') == 'AM') {
-            dataCheck.setAttribute('data-check', 'PM');
-            digital.style.display = 'flex';
-
-            console.log(dataCheck);
-        } else if (dataCheck.getAttribute('data-check') == 'digital') {
-            dataCheck.setAttribute('data-check', 'analog');
-            digital.style.display = 'none';
-            analog.style.display = 'flex';
-            console.log(dataCheck);
-        }
-    });
-};
