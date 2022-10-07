@@ -1,6 +1,6 @@
 # Analog-Digital Clock
 
-Digital or analog clock with weather and city information 
+Digital or analog clock with weather and city information <br>
 Switching between clocks is done via slide-button. 
 ## Authors
 
